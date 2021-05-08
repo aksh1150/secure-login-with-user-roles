@@ -20,6 +20,16 @@ export const register = async (req, res) => {
     // hash password
     const hashedPassword = await hashPassword(password)
 
+
+    // register
+    const user = new User({
+        name,
+        email,
+        password: hashedPassword
+    }).save();
+
+    console.log("Saved user", user)
+
    } catch (err) {
        console.log(err)
        return res.status(400).send('Error Try again.')
