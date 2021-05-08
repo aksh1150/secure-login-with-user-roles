@@ -12,8 +12,8 @@ app.prepare().then(() => {
     const server = express()
     // apply proxy in dev mode
     if(dev) {
-        server.use('/', createProxyMiddleware({
-            target: 'http://localhost:8000/api/', // this is same url which we define in .env.local
+        server.use('/api', createProxyMiddleware({
+            target: 'http://localhost:8000', // this is same url which we define in .env.local
             changeOrigin: true,
         }))
     }
@@ -23,7 +23,7 @@ app.prepare().then(() => {
 
     server.listen(3000, (err) => {
         if(err) throw err;
-        console.log('> Ready on http://localhost:8000/api/')
+        console.log('> Ready on http://localhost:8000')
     })
 })
 .catch((err) => {
