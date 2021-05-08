@@ -10,6 +10,12 @@ export const register = async (req, res) => {
     if(!name) return res.status(400).send("Name is required!")
     if(!password || password.length < 6) return res.status(400).send("Password is required and should be six characters long!")
     if(!email) return res.status(400).send("Email is required!")
+    
+
+    // Check if user exists
+    let userExist = await User.findOne({email}).exec();
+    if(userExist) return res.status(400).send("Email is taken.")
+
    } catch (err) {
        console.log(err)
        return res.status(400).send('Error Try again.')
