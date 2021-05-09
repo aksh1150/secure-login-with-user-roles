@@ -7,7 +7,7 @@ const initialState = {
 }
 
 // create context
-const context = createContext()
+const Context = createContext()
 
 // root reducer
 const rootReducer = (state, action) => {
@@ -23,7 +23,14 @@ const rootReducer = (state, action) => {
 
 
 // context provider
-
 const provider = ({children}) => {
     const [state, dispatch] = useReducer(rootReducer, initialState)
+
+    return (
+        <Context.Provider value={{state, dispatch}}>
+            {children}
+        </Context.Provider>
+    )
 }
+
+export {Context, provider};
