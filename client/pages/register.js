@@ -2,6 +2,7 @@ import {useState} from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify'
 import { SyncOutlined } from '@ant-design/icons'
+import Link from 'next/link'
 
 const Register = () => {
 
@@ -39,6 +40,7 @@ const Register = () => {
           <input type="password" className="form-control mb-4 p-4" value={password} onChange={e => setPassword(e.target.value)} placeholder="Enter Password" required />
           <button type="submit" className="btn btn-primary btn-block p-2" disabled={!name || !email || !password || loading}>{loading ? <SyncOutlined sync /> : "Submit"}</button>
         </form>
+        <p className="text-center p-3">Already register? <Link href="/login"><a>Login</a></Link></p>
       </div>
 
     </>
