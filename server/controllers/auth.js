@@ -55,6 +55,11 @@ export const login = async (req, res) => {
             expiresIn: "7d",
         });
 
+        // return user and token to client, not send hashed password
+        user.password = undefined;
+
+
+
 
 
     } catch (err) {
