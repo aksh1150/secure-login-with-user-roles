@@ -58,7 +58,12 @@ export const login = async (req, res) => {
         // return user and token to client, not send hashed password
         user.password = undefined;
 
-
+        // send token to client in cookie
+        // NOTE: not send token as a response object like res.json({token: token})
+        // Send it by cookie
+        res.cookie('token', token, {
+            httpOnly: true,
+        })
 
 
 
