@@ -23,7 +23,7 @@ const rootReducer = (state, action) => {
 
 
 // context provider
-const provider = ({children}) => {
+const Provider = ({children}) => {
     const [state, dispatch] = useReducer(rootReducer, initialState)
 
     return (
@@ -33,4 +33,4 @@ const provider = ({children}) => {
     )
 }
 
-export {Context, provider};
+export {Context, Provider};
