@@ -1,6 +1,6 @@
 import User from '../models/user'
 import { hashPassword, comparePassword  } from '../utils/auth';
-import jwt from 'jsonwebtoken'
+import jwt from 'jsonwebtoken';
 
 
 export const register = async (req, res) => {
@@ -63,8 +63,11 @@ export const login = async (req, res) => {
         // Send it by cookie
         res.cookie('token', token, {
             httpOnly: true,
-        })
+           // secure: true, // only works with https
+        });
 
+        // send user as json response
+        res.json(user);
 
 
     } catch (err) {
