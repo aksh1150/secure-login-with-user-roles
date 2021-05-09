@@ -5,3 +5,6 @@ import {useReducer, createContext} from 'react'
 const initialState = {
     user: null,
 }
+
+// create context
+const context = createContext()
