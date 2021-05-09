@@ -44,6 +44,10 @@ export const login = async (req, res) => {
         // check if our db has user with that password
         const user = await User.findOne({email}).exec()
         if(!user) return res.status(400).send("User not found!");
+
+        // check password
+        const match = await comparePassword(password, user.password)
+        if(!match) return res.status(400).send("Password not match!")
     } catch (err) {
         console.log(err)
         return res.status(400).send("Error, Try again!");
