@@ -35,3 +35,17 @@ export const register = async (req, res) => {
        return res.status(400).send('Error Try again.')
    }
 }
+
+
+export const login = async (req, res) => {
+    try {
+        const {email, password} = req.body
+
+        // check if our db has user with that password
+        const user = await User.findOne({email}).exec()
+        if(!user) return res.status(400).send("User not found!");
+    } catch (err) {
+        console.log(err)
+        return res.status(400).send("Error, Try again!");
+    }
+}
