@@ -26,10 +26,13 @@ const {state, dispatch} = useContext(Context)
      dispatch({
        type: "LOGIN",
        payload: data,
-     })
+     });
+
+     // save in local storage
+     window.localStorage.setItem("user", JSON.stringify(data));
       setLoading(false);
     } catch (err) {
-      toast.error(err.response.data)
+      toast.error(err.response)
       setLoading(false)
     }
   }
