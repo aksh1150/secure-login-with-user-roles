@@ -6,9 +6,12 @@ import {AppstoreOutlined, LoginOutlined, UserAddOutlined} from "@ant-design/icon
 const { Item } = Menu
 
 const TopNav = () => {
-  const [current, setCurrent] = useState('')
+  const [current, setCurrent] = useState('');
+  useEffect(() => {
+    process.browser && setCurrent(window.location.pathname)
+  }, [process.browser && window.location.pathname])
   return (
-    <Menu mode="horizontal">
+    <Menu mode="horizontal" selectedKeys={[current]}>
       <Item key="/" onClick={(e) => setCurrent(e.key)} icon={<AppstoreOutlined/>}>
         <Link href="/">
           <a>App</a>
