@@ -20,3 +20,10 @@ const rootReducer = (state, action) => {
             return state;
     }
 }
+
+
+// context provider
+
+const provider = ({children}) => {
+    const [state, dispatch] = useReducer(rootReducer, initialState)
+}
