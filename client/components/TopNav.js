@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from 'react' 
 import { Menu } from "antd"
 import Link from "next/link"
-import {AppstoreOutlined, LoginOutlined, UserAddOutlined} from "@ant-design/icons"
+import {AppstoreOutlined, LoginOutlined, UserAddOutlined, LogoutOutlined} from "@ant-design/icons"
 import { Context } from "../context"
 import axios from "axios"
 import {useRouter} from 'next/router'
@@ -49,7 +49,7 @@ const TopNav = () => {
         </Link>
       </Item>
 
-       <Item onClick={logout} icon={<UserAddOutlined/>}>
+       <Item onClick={logout} icon={<LogoutOutlined/>}>
          Logout
       </Item>
     </Menu>
