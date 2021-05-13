@@ -19,6 +19,8 @@ const TopNav = () => {
   }, [process.browser && window.location.pathname])
 
   const router = useRouter()
+
+  // logout user
   const logout = async () => {
     dispatch({type: "LOGOUT"})
     window.localStorage.removeItem('user')
@@ -45,6 +47,10 @@ const TopNav = () => {
         <Link href="/register">
           <a>Register</a>
         </Link>
+      </Item>
+
+       <Item onClick={logout} icon={<UserAddOutlined/>}>
+         Logout
       </Item>
     </Menu>
   )
