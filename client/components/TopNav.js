@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react'
 import { Menu } from "antd"
 import Link from "next/link"
 import {AppstoreOutlined, LoginOutlined, UserAddOutlined} from "@ant-design/icons"
+import { Context } from "../context" 
 
 const { Item } = Menu
 
