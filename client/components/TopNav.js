@@ -5,6 +5,7 @@ import {AppstoreOutlined, LoginOutlined, UserAddOutlined} from "@ant-design/icon
 import { Context } from "../context"
 import axios from "axios"
 import {useRouter} from 'next/router'
+import {toast} from 'react-toastify'
 
 const { Item } = Menu
 
@@ -17,7 +18,7 @@ const TopNav = () => {
     process.browser && setCurrent(window.location.pathname)
   }, [process.browser && window.location.pathname])
 
-
+  const router = useRouter()
   const logout = async () => {
     dispatch({type: "LOGOUT"})
     window.localStorage.removeItem('user')
