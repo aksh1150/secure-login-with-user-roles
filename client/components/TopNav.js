@@ -25,7 +25,7 @@ const TopNav = () => {
     dispatch({type: "LOGOUT"})
     window.localStorage.removeItem('user')
     const {data} = await axios.get('/api/logout')
-    toast(data.message);
+    toast.success(data.message);
     router.push("/login")
   }
 
@@ -49,7 +49,7 @@ const TopNav = () => {
         </Link>
       </Item>
 
-       <Item onClick={logout} icon={<LogoutOutlined/>}>
+       <Item onClick={logout} icon={<LogoutOutlined/>} className="float-right">
          Logout
       </Item>
     </Menu>
