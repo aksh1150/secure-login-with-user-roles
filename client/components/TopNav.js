@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react' 
+import { useState, useEffect, useContext } from 'react' 
 import { Menu } from "antd"
 import Link from "next/link"
 import {AppstoreOutlined, LoginOutlined, UserAddOutlined} from "@ant-design/icons"
@@ -8,6 +8,9 @@ const { Item } = Menu
 
 const TopNav = () => {
   const [current, setCurrent] = useState('');
+
+  const {state, dispatch} = useContext(Context)
+
   useEffect(() => {
     process.browser && setCurrent(window.location.pathname)
   }, [process.browser && window.location.pathname])
