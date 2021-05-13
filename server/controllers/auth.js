@@ -75,3 +75,14 @@ export const login = async (req, res) => {
         return res.status(400).send("Error, Try again!");
     }
 }
+
+
+
+// Logout
+export const logout = async (req, res) => {
+    try {
+
+    } catch (err) {
+        console.log(err)
+    }
+}
