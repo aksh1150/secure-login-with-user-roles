@@ -42,24 +42,23 @@ const TopNav = () => {
       {user === null && (
         <>
         <Item key="/login" onClick={(e) => setCurrent(e.key)} icon={<LoginOutlined/>}>
-        <Link href="/login">
-          <a>Login</a>
-        </Link>
-      </Item>
+          <Link href="/login">
+            <a>Login</a>
+          </Link>
+        </Item>
 
-      <Item key="/register" onClick={(e) => setCurrent(e.key)} icon={<UserAddOutlined/>}>
-        <Link href="/register">
-          <a>Register</a>
-        </Link>
-      </Item>
+        <Item key="/register" onClick={(e) => setCurrent(e.key)} icon={<UserAddOutlined/>}>
+          <Link href="/register">
+            <a>Register</a>
+          </Link>
+        </Item>
       </>
       )}
-{user !== null && (
- <Item onClick={logout} icon={<LogoutOutlined/>} className="float-right">
-         Logout
-      </Item>
-)}
-      
+      {user !== null && (
+        <Item onClick={logout} icon={<LogoutOutlined/>} className="float-right">
+          Logout
+        </Item>
+      )}
     </Menu>
   )
 }
