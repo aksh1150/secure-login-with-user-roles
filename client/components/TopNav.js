@@ -7,7 +7,7 @@ import axios from "axios"
 import {useRouter} from 'next/router'
 import {toast} from 'react-toastify'
 
-const { Item } = Menu
+const { Item, SubMenu } = Menu
 
 const TopNav = () => {
   const [current, setCurrent] = useState('');
@@ -55,10 +55,13 @@ const TopNav = () => {
       </>
       )}
       {user !== null && (
-        <Item onClick={logout} icon={<LogoutOutlined/>} className="float-right">
-          Logout
-        </Item>
+        <SubMenu icon={<CoffeeOutlined />}>
+           <Item onClick={logout} icon={<LogoutOutlined/>} className="float-right">
+              Logout
+            </Item>
+        </SubMenu>
       )}
+
     </Menu>
   )
 }
