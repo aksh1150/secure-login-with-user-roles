@@ -14,13 +14,13 @@ const Register = () => {
   const [loading, setLoading] = useState(false)
 
   // destructure user other way
-const {state: {user}, dispatch} = useContext(Context) 
-const router = useRouter()
+  const {state: {user}, dispatch} = useContext(Context) 
+  const router = useRouter()
 
 
-useEffect(() => {
-  if(user !== null) router.push("/");
-},[user])
+  useEffect(() => {
+    if(user !== null) router.push("/");
+  },[user])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -43,7 +43,6 @@ useEffect(() => {
   return (
     <>
       <h1 className="jumbotron text-center bg-primary square">Register</h1>
-
       <div className="container col-md-4 offset-md-4 pb-5">
         <form onSubmit={handleSubmit}>
           <input type="text" className="form-control mb-4 p-4" value={name} onChange={e => setName(e.target.value)} placeholder="Enter Name" required />
@@ -53,7 +52,6 @@ useEffect(() => {
         </form>
         <p className="text-center p-3">Already register? <Link href="/login"><a>Login</a></Link></p>
       </div>
-
     </>
   )
 }
