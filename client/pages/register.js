@@ -14,9 +14,7 @@ const Register = () => {
   const [loading, setLoading] = useState(false)
 
   // destructure user other way
-const {state: {user}, dispatch} = useContext(Context)
-
-
+const {state: {user}, dispatch} = useContext(Context) 
 const router = useRouter()
 
 
