@@ -14,6 +14,8 @@ const TopNav = () => {
 
   const {state, dispatch} = useContext(Context)
 
+  const {user} = state
+
   useEffect(() => {
     process.browser && setCurrent(window.location.pathname)
   }, [process.browser && window.location.pathname])
@@ -37,7 +39,9 @@ const TopNav = () => {
         </Link>
       </Item>
 
-      <Item key="/login" onClick={(e) => setCurrent(e.key)} icon={<LoginOutlined/>}>
+      {user === null && (
+        <>
+        <Item key="/login" onClick={(e) => setCurrent(e.key)} icon={<LoginOutlined/>}>
         <Link href="/login">
           <a>Login</a>
         </Link>
@@ -48,6 +52,8 @@ const TopNav = () => {
           <a>Register</a>
         </Link>
       </Item>
+      </>
+      )}
 
        <Item onClick={logout} icon={<LogoutOutlined/>} className="float-right">
          Logout
