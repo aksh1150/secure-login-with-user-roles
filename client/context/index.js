@@ -1,6 +1,6 @@
 import {useReducer, createContext, useEffect} from 'react'
 import axios from 'axios';
-
+import {userRouter} from 'next/router'; 
 
 // create initial state
 const initialState = {
@@ -26,6 +26,10 @@ const rootReducer = (state, action) => {
 // context provider
 const Provider = ({children}) => {
     const [state, dispatch] = useReducer(rootReducer, initialState)
+
+    // router
+    const router = useRouter();
+
     useEffect(() => {
         dispatch({
             type: "LOGIN",
