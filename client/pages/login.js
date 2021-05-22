@@ -17,7 +17,7 @@ const {user} = state
 
 const router = useRouter()
 
-
+// redirect user on home if they logged in
 useEffect(() => {
   if(user !== null) router.push("/");
 },[user])

@@ -2,8 +2,12 @@ import express from 'express';
 import cors from 'cors';
 import { readdirSync } from "fs";
 import mongoose from 'mongoose';
+import csrf from 'csurf';
+import cookieParser from 'cookie-parser';
 const morgan = require('morgan')
 require('dotenv').config();
+
+const csrfProtection = csrf({ cookie: true })
 
 
 const app = express();
@@ -22,6 +26,7 @@ mongoose.connect(process.env.DATABASE, {
 // apply middleware
 app.use(cors());
 app.use(express.json());
+app.use(cookieParser());
 app.use(morgan("dev"));
 
 
@@ -33,6 +38,13 @@ readdirSync("./routes").map((fileName) =>
     app.use('/api', require(`./routes/${fileName}`))
 );
 
+
+// csrf
+app.use(csrfProtection);
+
+app.get('/api/csrf-token', (req, res) => {
+    res.json({ csrfToken: req.csrfToken() })
+})
 
 
 // port
