@@ -37,6 +37,10 @@ readdirSync("./routes").map((fileName) =>
 );
 
 
+// csrf
+app.use(csrfProtection);
+
+
 
 // port
 const port = process.env.PORT || 8000;
