@@ -60,6 +60,7 @@ const Provider = ({children}) => {
                     })
                 })
             }
+            return Promise.reject(error)
         }
     )
 
