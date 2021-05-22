@@ -46,7 +46,9 @@ const Provider = ({children}) => {
                 return new Promise((resolve, reject) => {
                     axios.get('/api/logout')
                     .then((data) => {
-                        
+                        dispatch({type: "LOGOUT"})
+                        window.localStorage.removeItem('user')
+                        router.push('/login')
                     })
                     .catch((err) => {
                         console.log('AXIOS INTERCEPTORS ERR', err)
