@@ -70,7 +70,7 @@ const Provider = ({children}) => {
             axios.defaults.headers['X-CSRF-Token'] = data.getCsrfToken;
         };
         getCsrfToken();
-    },[])
+    }, [])
 
     return (
         <Context.Provider value={{state, dispatch}}>

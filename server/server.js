@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import { readdirSync } from "fs";
 import mongoose from 'mongoose';
-import csrf from 'csrf';
+import csrf from 'csurf';
 const morgan = require('morgan')
 require('dotenv').config();
 
