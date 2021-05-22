@@ -1,5 +1,5 @@
 import {useReducer, createContext, useEffect} from 'react'
-import axios from 'axios'
+import axios from 'axios';
 
 
 // create initial state
@@ -31,7 +31,32 @@ const Provider = ({children}) => {
             type: "LOGIN",
             payload: JSON.parse(localStorage.getItem("user")),
         })
-    }, [])
+    }, []);
+
+    
+    // use axios interceptors
+    axios.interceptors.response.use(
+        function(response) {
+            // any status code that lie within the range of 2xx cause this function to triggeer 
+            return response;
+        }, function(error) {
+            // any status code that falls outside the range of 2xx cause this function to trigger
+            let res = error.response;
+            if(res.status === 401 && res.config && !res.config.__isRetryRequest) {
+                return new Promise((resolve, reject) => {
+                    axios.get('/api/logout')
+                    .then((data) => {
+
+                    })
+                    .catch((err) => {
+                        console.log('AXIOS INTERCEPTORS ERR', err)
+                        reject(error)
+                    })
+                })
+            }
+        }
+    )
+
     return (
         <Context.Provider value={{state, dispatch}}>
             {children}
