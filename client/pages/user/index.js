@@ -28,7 +28,7 @@ const UserIndex = () => {
         <>
        {!hidden && (
        <h1 className="jumbotron text-center square">
-            <pre>{JSON.stringify(user)}</pre>
+            <pre>{user.name}</pre>
         </h1> 
        )
         }
