@@ -3,18 +3,17 @@ import { Context } from '../../context'
 import axios from 'axios'
 
 const UserRoute = () => {
-    const [ok, setOk] = useState(true);
+    const [ok, setOk] = useState(false);
     // get user from context state
     const { state: {user} } = useContext(Context);
 
      const fetchUser = async () => {
             try {
                 const { data } = await axios.get('/api/current-user');
-                console.log(data);
-                setOk(false);
+                if(data.ok) setOk(true);
             } catch(err) {
                 console.log(err);
-                setOk(true);
+                setOk(false);
             }
         };
 
