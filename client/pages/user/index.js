@@ -3,6 +3,7 @@ import { Context } from '../../context'
 import axios from 'axios'
 
 const UserIndex = () => {
+    const [hidden, setHidden] = useState(true);
     // get user from context state
     const { state: {user} } = useContext(Context)
     useEffect(() => {
