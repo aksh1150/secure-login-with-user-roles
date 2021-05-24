@@ -2,6 +2,7 @@ import { useEffect, useState, useContext } from 'react'
 import { Context } from '../../context'
 import axios from 'axios'
 import { useRouter } from 'next/router';
+import { SyncOutlined } from '@ant-design/icons'
 
 const UserRoute = ({ children }) => {
     const [ok, setOk] = useState(false);
@@ -31,7 +32,7 @@ const UserRoute = ({ children }) => {
 
     return (
         <>
-            {!ok ? 'Loading...' : (
+            {!ok ? <SyncOutlined/> : (
                    { children }
                 )
             }
