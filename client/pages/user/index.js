@@ -25,9 +25,14 @@ const UserIndex = () => {
 
 
     return (
-        <h1 className="jumbotron text-center square">
+        <>
+       {!hidden && (
+       <h1 className="jumbotron text-center square">
             <pre>{JSON.stringify(user)}</pre>
-        </h1>
+        </h1> 
+       )
+        }
+        </>
     )
 }
 
