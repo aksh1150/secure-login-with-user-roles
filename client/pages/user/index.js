@@ -26,7 +26,7 @@ const UserIndex = () => {
 
     return (
         <h1 className="jumbotron text-center square">
-            <pre>{JOSN.stringify(user)}</pre>
+            <pre>{JSON.stringify(user)}</pre>
         </h1>
     )
 }
