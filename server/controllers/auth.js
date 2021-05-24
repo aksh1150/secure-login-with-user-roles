@@ -95,7 +95,7 @@ export const currentUser = async (req, res) => {
     try {
         // get user but not send password to frontend so deselect password using -password
         const user = await User.findById(req.user._id).select('-password').exec();
-        return res.json(user)
+        return res.json({ok: true})
     } catch (err) {
         console.log(err)
     }
