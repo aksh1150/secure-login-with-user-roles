@@ -31,12 +31,12 @@ const UserRoute = () => {
 
     return (
         <>
-       {!hidden && (
-       <h1 className="jumbotron text-center square">
-            <pre>{user.name}</pre>
-        </h1> 
-       )
-        }
+            {!hidden && (
+                    <h1 className="jumbotron text-center square">
+                        <pre>{user.name}</pre>
+                    </h1> 
+                )
+            }
         </>
     )
 }
