@@ -7,16 +7,12 @@ const UserIndex = () => {
     const { state: {user} } = useContext(Context);
 
 
-
     return (
-        <>
-       {!hidden && (
-       <h1 className="jumbotron text-center square">
-            <pre>{user.name}</pre>
-        </h1> 
-       )
-        }
-        </>
+        <UserRoute>
+            <h1 className="jumbotron text-center square">
+                <pre>{user.name}</pre>
+            </h1>
+        </UserRoute>
     )
 }
 
