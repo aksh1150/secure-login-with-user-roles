@@ -3,7 +3,7 @@ import { Context } from '../../context'
 import axios from 'axios'
 import { useRouter } from 'next/router';
 
-const UserRoute = () => {
+const UserRoute = ({ children }) => {
     const [ok, setOk] = useState(false);
 
     // router
@@ -31,10 +31,8 @@ const UserRoute = () => {
 
     return (
         <>
-            {!hidden && (
-                    <h1 className="jumbotron text-center square">
-                        <pre>{user.name}</pre>
-                    </h1> 
+            {!ok ? 'Loading...' : (
+                   { children }
                 )
             }
         </>
