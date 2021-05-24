@@ -8,12 +8,22 @@ const UserIndex = () => {
    
     return (
         <>
-            { user && ( <>
+            { user ? ( <>
                 <UserRoute>
                 <h1 className="jumbotron text-center square">
                     <pre>{user.name}</pre>
                 </h1>
-            </UserRoute> </> ) }
+            </UserRoute> </> ) : ( <>
+                <UserRoute>
+              
+                   {JSON.stringify(user)}
+             
+            </UserRoute> </> )}
+            {/* <UserRoute>
+                <h1 className="jumbotron text-center square">
+                    <pre>{JSON.stringify(user)}</pre>
+                </h1>
+            </UserRoute> */}
         </>
     )
 }
