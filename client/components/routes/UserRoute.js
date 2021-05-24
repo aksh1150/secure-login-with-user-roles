@@ -1,5 +1,4 @@
-import { useEffect, useState, useContext } from 'react'
-import { Context } from '../../context'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useRouter } from 'next/router';
 import { SyncOutlined } from '@ant-design/icons'
@@ -9,9 +8,6 @@ const UserRoute = ({ children }) => {
 
     // router
     const router = useRouter();
-
-    // get user from context state
-    const { state: {user} } = useContext(Context);
 
      const fetchUser = async () => {
             try {
