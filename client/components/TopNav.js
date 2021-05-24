@@ -62,7 +62,7 @@ const TopNav = () => {
                 <a>Dashboard</a>
               </Link>
             </Item>
-             <Item onClick={logout} className="float-right">
+             <Item onClick={logout}>
               Logout
             </Item>
            </ItemGroup>
